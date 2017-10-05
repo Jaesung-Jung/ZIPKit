@@ -183,7 +183,7 @@ extension ZIPReader {
             return data
         }
 
-        func streaming(password: String? = nil, streamHandler: (Data) -> Bool) throws {
+        public func streaming(password: String? = nil, streamHandler: (Data) -> Bool) throws {
             let stream = Stream(url: url, offset: offset, password: password)
             try stream.streaming(streamHandler)
         }
