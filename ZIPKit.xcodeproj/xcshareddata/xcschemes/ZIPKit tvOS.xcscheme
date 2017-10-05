@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4BE685451F86C3AE0081FCF6"
-               BuildableName = "ZIPKit_tvOS.framework"
+               BuildableName = "ZIPKit.framework"
                BlueprintName = "ZIPKit tvOS"
                ReferencedContainer = "container:ZIPKit.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BE685451F86C3AE0081FCF6"
-            BuildableName = "ZIPKit_tvOS.framework"
+            BuildableName = "ZIPKit.framework"
             BlueprintName = "ZIPKit tvOS"
             ReferencedContainer = "container:ZIPKit.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BE685451F86C3AE0081FCF6"
-            BuildableName = "ZIPKit_tvOS.framework"
+            BuildableName = "ZIPKit.framework"
             BlueprintName = "ZIPKit tvOS"
             ReferencedContainer = "container:ZIPKit.xcodeproj">
          </BuildableReference>
