@@ -124,7 +124,8 @@ extension ZIPReader {
                     isHidden: path.lastPathComponent.first == ".",
                     offset: unzGetOffset64(handle),
                     compressedSize: info.compressed_size,
-                    uncompressedSize: info.uncompressed_size
+                    uncompressedSize: info.uncompressed_size,
+                    crc: info.crc
                 )
                 files.append(file)
             }
@@ -200,6 +201,7 @@ extension ZIPReader {
         public let offset: UInt64
         public let compressedSize: UInt64
         public let uncompressedSize: UInt64
+        public let crc: UInt
 
         public func data(password: String? = nil) throws -> Data {
             var data = Data()
