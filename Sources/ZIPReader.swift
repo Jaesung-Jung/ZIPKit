@@ -44,7 +44,7 @@ public class ZIPReader {
         defer {
             unzCloseCurrentFile(handle)
         }
-        
+
         var buffer: [UInt8] = []
         isEncrypted = unzReadCurrentFile(handle, &buffer, 1) < 0
     }
@@ -57,6 +57,34 @@ public class ZIPReader {
             return true
         }
         return data
+    }
+
+    public func unarchive(to: URL, password: String? = nil, overwrite: Bool = true) -> Void {
+        files.forEach { file in
+            let url = to.appendingPathComponent(file.path)
+            let directoryURL = url.deletingLastPathComponent()
+            if FileManager.default.fileExists(atPath: url.path) && !overwrite {
+                return
+            }
+
+            do {
+                try FileManager.default.createDirectory(
+                    at: url.deletingLastPathComponent(),
+                    withIntermediateDirectories: true
+                )
+                guard let stream = OutputStream(toFileAtPath: url.path, append: false) else {
+                    return
+                }
+                stream.open()
+                defer {
+                    stream.close()
+                }
+                try file.streaming { data in
+                    stream.write(data.withUnsafeBytes { $0 }, maxLength: data.count)
+                    return true
+                }
+            } catch { return }
+        }
     }
 
 }
